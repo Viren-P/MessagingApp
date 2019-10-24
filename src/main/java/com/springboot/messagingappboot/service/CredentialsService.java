@@ -26,6 +26,10 @@ public class CredentialsService {
 		return credentialsRepository.findAll();
 	}
 	
+	public void add(Credentials credentials) {
+		credentialsRepository.save(credentials);
+	}
+	
 	public void update(Credentials credentials) {
 		Credentials credentialsExisting = this.getById(credentials.getId());
 		if (credentialsExisting != null) {

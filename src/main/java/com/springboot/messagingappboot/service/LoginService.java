@@ -36,13 +36,18 @@ public class LoginService {
 	}
 	
 	public boolean userExists(String username) {
-		List<User> users = userRepository.findAll();
-		for(User u : users) {
-			if (u.getCredentials().getUsername().trim().equalsIgnoreCase(username)) {
-				return true;
-			}
+		if(getUser(username) == null) {
+			return false;
 		}
-		return false;
+		return true;
+		
+//		List<User> users = userRepository.findAll();
+//		for(User u : users) {
+//			if (u.getCredentials().getUsername().trim().equalsIgnoreCase(username)) {
+//				return true;
+//			}
+//		}
+//		return false;
 	}
 	
 }

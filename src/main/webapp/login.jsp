@@ -6,19 +6,18 @@
 <html>
 <body>
 
-	<h1>Messaging App using Spring Boot</h1>
+	<h1 style="color:#009C90;">Messaging App using Spring Boot</h1>
 	<br>
 
 	<c:choose>
 		<c:when test="${sessionScope.loggedIn == -2}">
-			Entered Username is not registered.<br>
+			<p style="color: red;">Entered Username is not registered.</p>
 		</c:when>
 		<c:when test="${sessionScope.loggedIn eq -1}">
-			Username or Password is incorrect.<br>
-
+			<p style="color: red;">Username or Password is incorrect.</p>
 		</c:when>
 		<c:otherwise>
-			Login<br>
+			<p style="color: blue;">Login</p>
 		</c:otherwise>
 	</c:choose>
 	<br>
@@ -28,7 +27,7 @@
 		<br> Password:<br> <input type="password" name="password"><br>
 		<br> <input type="submit">
 	</form>
-	
+
 	<br>
 	<a href="/register">Register</a>
 

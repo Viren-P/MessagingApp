@@ -14,10 +14,9 @@ ${user.credentials.username}
 <br> ${user.role }
 <br>
 
-<c:if test="${not empty user.received}">
+
 <br>
 <h3>Inbox:</h3>
-<br>
 <!--  Received Messages -->
 <c:forEach items="${user.received}" var="message">
 	<tr>
@@ -30,13 +29,9 @@ ${user.credentials.username}
 		<br>
 	</tr>
 </c:forEach>
-<br>
-</c:if>
 
-<c:if test="${not empty user.sent}">
 <br>
 <h3>Sent Messages:</h3>
-<br>
 <!--  Sent Messages -->
 <c:forEach items="${user.sent}" var="message">
 	<tr>
@@ -50,8 +45,7 @@ ${user.credentials.username}
 	</tr>
 </c:forEach>
 <br>
-</c:if>
-<br>
+
 
 
 <a href="/composeMessage">Compose</a>

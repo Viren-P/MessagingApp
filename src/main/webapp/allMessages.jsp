@@ -16,13 +16,22 @@ ${user.credentials.username}
 
 <br>
 <h3>All Messages:</h3>
-<br>
 <!--  All Messages -->
+<c:set var="sender" value="[Deleted]" scope="page" />
+<c:set var="receiver" value="[Deleted]" scope="page" />
 <c:forEach items="${messages}" var="message">
 	<tr>
-		<td>From: <c:out value="${message.sender.credentials.username}" /></td>
+		<c:if test="${not empty message.sender.credentials.username}">
+			<c:set var="sender" value="${message.sender.credentials.username }"/>			
+		</c:if>
+		<c:if test="${not empty message.receiver.credentials.username}">
+			<c:set var="receiver" value="${message.receiver.credentials.username }"/>			
+		</c:if>
+		<td><c:out value="${message.id}" /></td>
 		<br>
-		<td>To: <c:out value="${message.receiver.credentials.username}" /></td>
+		<td>From: <c:out value="${sender}" /></td>
+		<br>
+		<td>To: <c:out value="${receiver}" /></td>
 		<br>
 		<td>Title: <c:out value="${message.title}" /></td>
 		<br>
